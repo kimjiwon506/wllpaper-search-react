@@ -3,11 +3,11 @@ const request = async (url) => {
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
+            return data;
         }
-        const errorData = await response.json();
-        throw errorData;
     } catch (e) {
         console.log(e);
     }
 };
+
 export default request;
