@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as SearchIcon } from '../asset/search.svg';
 import SearchTag from './SearchTag';
@@ -48,6 +48,7 @@ const SearchOptionButton = styled.p`
 
 const Search = ({ setQuery }) => {
     const [searchOption, setSearchOption] = useState(false);
+    const inputRef = useRef(null);
 
     const toggleSearchOption = () => {
         setSearchOption((prev) => !prev);
@@ -58,6 +59,7 @@ const Search = ({ setQuery }) => {
             const currentValue = e.target.value;
             // console.info(currentValue);
             setQuery(currentValue);
+            inputRef.current.value = '';
         }
     };
 
