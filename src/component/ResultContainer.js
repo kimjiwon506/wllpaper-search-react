@@ -24,11 +24,12 @@ const ResultsWrapper = styled.div`
 const ResultContainer = () => {
     // const data = DummyData;
     const [data, setData] = useState({});
+    const [query, setQuery] = useState('');
 
     useEffect(() => {
         const fetch = async () => {
             const data = await getWallPapers({
-                q: '검색어',
+                q: query,
             });
             setData(data);
         };
