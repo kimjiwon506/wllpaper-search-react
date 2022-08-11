@@ -49,7 +49,7 @@ const SearchOptionButton = styled.p`
 const Search = ({ setQuery }) => {
     const [searchOption, setSearchOption] = useState(false);
     const [searchTags, setSearchTags] = useState([]);
-    // const inputRef = useRef(null);
+    const inputRef = useRef(null);
 
     const toggleSearchOption = () => {
         setSearchOption((prev) => !prev);
@@ -60,7 +60,7 @@ const Search = ({ setQuery }) => {
             const currentValue = e.target.value;
             // console.info(currentValue);
             setQuery(currentValue);
-            // inputRef.current.value = '';
+            inputRef.current.value = '';
             setSearchTags((prev) => [...prev, currentValue]);
         }
     };
@@ -69,6 +69,7 @@ const Search = ({ setQuery }) => {
         //1.현재클릭된 최근 검색어로 검색실행
         //2.검색창에 input값도 업데이트 되어야함
         setQuery(tag);
+        inputRef.current.value = tag;
     };
 
     return (
@@ -79,6 +80,7 @@ const Search = ({ setQuery }) => {
                     <SearchInput
                         placeholder="검색어 입력 후 ENTER"
                         onKeyDown={onSearch}
+                        ref={inputRef}
                     />
                     <SearchOptionButton onClick={toggleSearchOption}>
                         검색 옵션 {searchOption ? '닫기' : '열기'}
