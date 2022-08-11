@@ -6,14 +6,15 @@ const defaultParams = {
     key: process.env.REACT_APP_PIXABAY,
 };
 
-const example = {
-    q: 'sky',
-};
+// const example = {
+//     q: 'sky',
+// };
 
-const getWallPapers = async () => {
+const getWallPapers = async (paramObj) => {
     const params = new URLSearchParams({
         ...defaultParams,
-        ...example,
+        ...paramObj,
+        // ...example,
     }).toString();
     const result = await request(`${BASE_URL}/?${params}`);
     return result;

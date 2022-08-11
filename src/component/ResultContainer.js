@@ -27,7 +27,9 @@ const ResultContainer = () => {
 
     useEffect(() => {
         const fetch = async () => {
-            const data = await getWallPapers();
+            const data = await getWallPapers({
+                q: '검색어',
+            });
             setData(data);
         };
         fetch();
