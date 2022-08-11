@@ -65,6 +65,12 @@ const Search = ({ setQuery }) => {
         }
     };
 
+    const searchTag = (tag) => {
+        //1.현재클릭된 최근 검색어로 검색실행
+        //2.검색창에 input값도 업데이트 되어야함
+        setQuery(tag);
+    };
+
     return (
         <>
             <SearchBoxContainer>
@@ -82,7 +88,7 @@ const Search = ({ setQuery }) => {
             </SearchBoxContainer>
             <SearchTagContainer>
                 {searchTags.map((tag) => (
-                    <SearchTag tag={tag} />
+                    <SearchTag tag={tag} searchTag={() => searchTag(tag)} />
                 ))}
             </SearchTagContainer>
         </>
