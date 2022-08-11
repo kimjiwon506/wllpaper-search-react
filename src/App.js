@@ -24,11 +24,11 @@ function App() {
             setData(data);
         };
         fetch();
-    }, []);
+    }, [query]);
     return (
         <>
             <Container>
-                <Hero query={query} setQuery={setQuery} />
+                <Hero setQuery={setQuery} />
                 <ResultContainer data={data} />
                 <Footer />
                 <ToggleThemeButton />
